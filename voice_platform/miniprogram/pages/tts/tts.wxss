@@ -1,0 +1,85 @@
+.voice-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-bottom: 30rpx;
+}
+
+.voice-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx 24rpx;
+  border: 2rpx solid #e5e7eb;
+  border-radius: 16rpx;
+  min-width: 140rpx;
+  background: #fff;
+}
+
+.voice-card-active {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.voice-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.voice-desc {
+  font-size: 22rpx;
+  color: #9ca3af;
+  margin-top: 4rpx;
+}
+
+.text-input {
+  border: 2rpx solid #d1d5db;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  min-height: 160rpx;
+  background: #fff;
+  margin-bottom: 24rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.audio-bar {
+  background: #f0fdf4;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  margin-bottom: 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.audio-label {
+  font-size: 26rpx;
+  color: #16a34a;
+}
+
+.audio-controls {
+  display: flex;
+  gap: 16rpx;
+}
+
+.play-btn, .stop-btn {
+  padding: 8rpx 20rpx;
+  border-radius: 8rpx;
+  background: #fff;
+  border: 2rpx solid #d1d5db;
+}
+
+.sub-links {
+  display: flex;
+  justify-content: center;
+  gap: 40rpx;
+  margin-top: 30rpx;
+}
+
+.sub-link {
+  color: #2563eb;
+  font-size: 28rpx;
+}

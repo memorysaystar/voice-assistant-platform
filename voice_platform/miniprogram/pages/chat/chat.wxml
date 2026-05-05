@@ -1,0 +1,57 @@
+<view class="chat-container">
+  <!-- 消息列表 -->
+  <scroll-view class="messages" scroll-y scroll-into-view="{{scrollToId}}" scroll-with-animation>
+    <view wx:for="{{messages}}" wx:key="id" id="msg-{{item.id}}" class="msg-row {{item.role === 'user' ? 'msg-user' : 'msg-assistant'}}">
+      <view class="bubble {{item.role === 'user' ? 'bubble-user' : 'bubble-assistant'}}">
+        <text user-select="true">{{item.content || '...'}}</text>
+      </view>
+    </view>
+    <!-- 流式中的打字指示器 -->
+    <view wx:if="{{isStreaming}}" class="msg-row msg-assistant">
+      <view class="bubble bubble-assistant">
+        <text class="typing-dots">{{streamingContent || '思考中...'}}</text>
+      </view>
+    </view>
+    <view id="msg-bottom" style="height: 20rpx;"></view>
+  </scroll-view>
+
+  <!-- TTS 面板 -->
+  <view wx:if="{{showTts}}" class="tts-panel">
+    <view class="tts-header">
+      <text class="tts-title">语音合成</text>
+      <text class="tts-close" bindtap="toggleTts">收起</text>
+    </view>
+    <view class="voice-grid">
+      <view
+        wx:for="{{voices}}"
+        wx:key="name"
+        class="voice-chip {{selectedVoice === item.name ? 'voice-active' : ''}}"
+        bindtap="onSelectVoice"
+        data-name="{{item.name}}"
+      >
+        <text class="voice-name">{{item.name}}</text>
+        <text class="voice-desc">{{item.desc}}</text>
+      </view>
+    </view>
+    <button class="btn-tts" bindtap="onTtsSynthesize" loading="{{ttsLoading}}" disabled="{{ttsLoading}}">合成语音</button>
+  </view>
+
+  <!-- 输入区域 -->
+  <view class="input-bar">
+    <view class="tts-toggle {{showTts ? 'tts-toggle-active' : ''}}" bindtap="toggleTts">
+      <text>🔊</text>
+    </view>
+    <input
+      class="chat-input"
+      placeholder="输入消息..."
+      value="{{inputText}}"
+      bindinput="onInput"
+      bindconfirm="onSend"
+      confirm-type="send"
+      disabled="{{isStreaming}}"
+    />
+    <view class="send-btn" bindtap="onSend">
+      <text class="send-text">发送</text>
+    </view>
+  </view>
+</view>

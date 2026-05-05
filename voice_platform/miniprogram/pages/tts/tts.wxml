@@ -1,0 +1,37 @@
+<view class="container">
+  <text class="section-title">选择音色</text>
+  <view class="voice-grid">
+    <view
+      wx:for="{{voices}}"
+      wx:key="name"
+      class="voice-card {{selectedVoice === item.name ? 'voice-card-active' : ''}}"
+      bindtap="onSelectVoice"
+      data-name="{{item.name}}"
+    >
+      <text class="voice-name">{{item.name}}</text>
+      <text class="voice-desc">{{item.desc}}</text>
+    </view>
+  </view>
+
+  <text class="section-title">合成文字</text>
+  <textarea class="text-input" placeholder="输入要合成的文字..." value="{{text}}" bindinput="onTextInput" maxlength="2000" auto-height />
+
+  <view wx:if="{{audioSrc}}" class="audio-bar">
+    <text class="audio-label">合成结果</text>
+    <view class="audio-controls">
+      <view class="play-btn" bindtap="onPlay">
+        <text>{{playing ? '⏸' : '▶'}}</text>
+      </view>
+      <view class="stop-btn" bindtap="onStop">
+        <text>停止</text>
+      </view>
+    </view>
+  </view>
+
+  <button class="btn-primary" bindtap="onSynthesize" loading="{{loading}}" disabled="{{loading || !text.trim()}}">合成语音</button>
+
+  <view class="sub-links">
+    <navigator url="/pages/clone/clone" class="sub-link">语音克隆 →</navigator>
+    <navigator url="/pages/design/design" class="sub-link">音色设计 →</navigator>
+  </view>
+</view>

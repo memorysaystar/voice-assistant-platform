@@ -1,0 +1,35 @@
+.container {
+  padding: 60rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  background: #fff;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60rpx;
+}
+
+.title {
+  font-size: 56rpx;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.link {
+  text-align: center;
+  margin-top: 16rpx;
+}
+
+.link-text {
+  color: #2563eb;
+  font-size: 28rpx;
+}

@@ -1,0 +1,21 @@
+<view class="container">
+  <text class="section-title">音色描述</text>
+  <textarea class="text-input" placeholder="描述你想要的音色，例如：温柔甜美的年轻女声..." value="{{prompt}}" bindinput="onPromptInput" maxlength="500" auto-height />
+
+  <text class="section-title">合成文字</text>
+  <textarea class="text-input" placeholder="输入要合成的文字..." value="{{text}}" bindinput="onTextInput" maxlength="2000" auto-height />
+
+  <view wx:if="{{audioSrc}}" class="audio-bar">
+    <text class="audio-label">设计结果</text>
+    <view class="play-btn" bindtap="onPlay">
+      <text>{{playing ? '⏸ 暂停' : '▶ 播放'}}</text>
+    </view>
+  </view>
+
+  <button
+    class="btn-primary btn-design"
+    bindtap="onDesign"
+    loading="{{loading}}"
+    disabled="{{loading || !prompt.trim() || !text.trim()}}"
+  >音色设计</button>
+</view>

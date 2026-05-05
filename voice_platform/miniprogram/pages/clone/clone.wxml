@@ -1,0 +1,35 @@
+<view class="container">
+  <text class="section-title">音频来源</text>
+  <view class="source-row">
+    <view class="source-btn" bindtap="onChooseFile">
+      <text class="source-icon">📁</text>
+      <text class="source-text">选择文件</text>
+    </view>
+    <view class="source-btn {{isRecording ? 'source-btn-recording' : ''}}" bindtap="onToggleRecord">
+      <text class="source-icon">{{isRecording ? '⏹' : '🎤'}}</text>
+      <text class="source-text">{{isRecording ? '停止录音' : '录音'}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{fileName}}" class="file-info">
+    <text class="file-icon">🎵</text>
+    <text class="file-name">{{fileName}}</text>
+  </view>
+
+  <text class="section-title">合成文字</text>
+  <textarea class="text-input" placeholder="输入要合成的文字..." value="{{text}}" bindinput="onTextInput" maxlength="2000" auto-height />
+
+  <view wx:if="{{audioSrc}}" class="audio-bar">
+    <text class="audio-label">克隆结果</text>
+    <view class="play-btn" bindtap="onPlay">
+      <text>{{playing ? '⏸ 暂停' : '▶ 播放'}}</text>
+    </view>
+  </view>
+
+  <button
+    class="btn-primary btn-clone"
+    bindtap="onClone"
+    loading="{{loading}}"
+    disabled="{{loading || !filePath || !text.trim()}}"
+  >语音克隆</button>
+</view>

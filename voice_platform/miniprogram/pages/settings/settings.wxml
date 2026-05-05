@@ -1,0 +1,29 @@
+<view class="container">
+  <text class="title">设置 / Settings</text>
+
+  <text class="section-title">服务器地址</text>
+  <view class="server-row">
+    <input class="input-field input-flex" placeholder="http://192.168.x.x:8000" value="{{serverUrl}}" bindinput="onServerInput" />
+    <view class="apply-btn" bindtap="onApplyServer">
+      <text class="apply-text">应用</text>
+    </view>
+  </view>
+
+  <text class="section-title">用户名</text>
+  <input class="input-field" value="{{username}}" bindinput="onUsernameInput" />
+
+  <text class="section-title">邮箱</text>
+  <input class="input-field" value="{{email}}" bindinput="onEmailInput" type="text" />
+
+  <text class="section-title">自定义 API Key（可选）</text>
+  <input class="input-field" placeholder="留空使用系统默认" value="{{apiKey}}" bindinput="onApiKeyInput" />
+
+  <button class="btn-primary" bindtap="onSave" loading="{{loading}}" disabled="{{loading}}">保存资料</button>
+
+  <button class="btn-danger" bindtap="onLogout">退出登录</button>
+
+  <view class="info-row">
+    <text class="info-text">账号：{{userEmail}}</text>
+    <text class="info-text">角色：{{userRole}}</text>
+  </view>
+</view>

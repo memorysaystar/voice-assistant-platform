@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="header">
+    <text class="title">注册 / Register</text>
+  </view>
+
+  <view class="form">
+    <input class="input-field" placeholder="用户名 / Username" value="{{username}}" bindinput="onUsernameInput" />
+    <input class="input-field" placeholder="邮箱 / Email" value="{{email}}" bindinput="onEmailInput" type="text" />
+    <input class="input-field" placeholder="密码 / Password" value="{{password}}" bindinput="onPasswordInput" password="true" />
+    <button class="btn-primary" bindtap="onRegister" loading="{{loading}}" disabled="{{loading}}">注册</button>
+    <view class="link" bindtap="goLogin">
+      <text class="link-text">已有账号？登录</text>
+    </view>
+  </view>
+</view>
